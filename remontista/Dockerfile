@@ -1,6 +1,6 @@
 # https://docs.ghost.org/supported-node-versions/
 # https://github.com/nodejs/LTS
-FROM node:6-alpine
+FROM node:10-alpine
 
 # grab su-exec for easy step-down from root
 RUN apk add --no-cache 'su-exec>=0.2'
@@ -11,13 +11,13 @@ RUN apk add --no-cache \
 
 ENV NODE_ENV production
 
-ENV GHOST_CLI_VERSION 1.3.0
+ENV GHOST_CLI_VERSION 1.9.9
 RUN npm install -g "ghost-cli@$GHOST_CLI_VERSION"
 
 ENV GHOST_INSTALL /var/lib/ghost
 ENV GHOST_CONTENT /var/lib/ghost/content
 
-ENV GHOST_VERSION 1.18.0
+ENV GHOST_VERSION 1.25.7
 
 RUN set -ex; \
 	mkdir -p "$GHOST_INSTALL"; \
